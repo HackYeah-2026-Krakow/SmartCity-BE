@@ -1,0 +1,11 @@
+.git
+**/bin
+**/obj
+**/.vs
+**/.idea
+**/TestResults
+**/*.user
+**/*.suo
+**/*.log
+.env
+.env.*
