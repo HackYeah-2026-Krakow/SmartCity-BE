@@ -41,6 +41,18 @@ public class LocationStore
         }
     }
 
+    public void ReplaceSimulated(IEnumerable<StoredPing> pings, double nowSec)
+    {
+        var replacement = pings.ToList();
+        if (replacement.Any(p => !p.Simulated))
+            throw new ArgumentException("Only simulated pings can be replaced.", nameof(pings));
+        lock (_gate)
+        {
+            _pings.RemoveAll(p => p.Simulated || p.T < nowSec - 600);
+            _pings.AddRange(replacement);
+        }
+    }
+
     public List<StoredPing> Snapshot() { lock (_gate) return _pings.ToList(); }
 }
 

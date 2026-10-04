@@ -6,6 +6,7 @@ builder.Services.AddCors(o => o.AddDefaultPolicy(p => p.AllowAnyOrigin().AllowAn
 builder.Services.AddSingleton<TripStore>();
 builder.Services.AddSingleton<TripPipeline>();
 builder.Services.AddSingleton<LocationStore>();
+builder.Services.AddHostedService<LiveTrafficSimulator>();
 
 var app = builder.Build();
 app.UseCors();
