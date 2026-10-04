@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackYeahBackend", "HackYeahBackend\HackYeahBackend.csproj", "{A64F98E9-61CC-4CA3-882D-E26823B70ED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A64F98E9-61CC-4CA3-882D-E26823B70ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A64F98E9-61CC-4CA3-882D-E26823B70ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A64F98E9-61CC-4CA3-882D-E26823B70ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A64F98E9-61CC-4CA3-882D-E26823B70ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
