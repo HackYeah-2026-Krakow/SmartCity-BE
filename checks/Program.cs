@@ -23,6 +23,7 @@ await Task.Delay(5500);
 var second = KrakowTraffic.Build(trips, locations, Now());
 Check(second.Corridors.Zip(first.Corridors).Any(x => x.First.Metrics.SpeedKmh != x.Second.Metrics.SpeedKmh), "corridor speeds change after five seconds");
 Check(second.Corridors.Zip(first.Corridors).Any(x => x.First.Heat.Congestion != x.Second.Heat.Congestion), "map congestion heat changes");
+Check(second.Corridors.Zip(first.Corridors).Count(x => Math.Abs(x.First.Metrics.SpeedKmh - x.Second.Metrics.SpeedKmh) >= 10) >= 3, "several roads have clearly visible speed changes");
 Check(second.Intersections.Zip(first.Intersections).Any(x => x.First.Metrics.SpeedKmh != x.Second.Metrics.SpeedKmh), "intersection speeds change");
 Check(locations.Snapshot().Count == count, "simulation does not grow the ping store");
 Check(locations.Snapshot().Contains(real), "real observations survive simulation updates");

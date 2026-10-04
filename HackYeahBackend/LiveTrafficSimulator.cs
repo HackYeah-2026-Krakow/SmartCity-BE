@@ -29,8 +29,11 @@ public sealed class LiveTrafficSimulator(LocationStore locations, IConfiguration
         {
             var cum = RouteGeometry.Cumulative(path);
             var length = cum[^1];
-            // A one-minute congestion wave with a different phase on each road.
-            var speed = Math.Clamp(baselineSpeed + 14 * Math.Sin(frame * Math.PI / 6 + index++ * 0.9), 5, 48);
+            // Clear demo transitions: slow queue -> moving -> free flow -> congestion.
+            // Roads use different phases of the same twenty-second cycle.
+            double[] speedCycle = [7, 23, 45, 16];
+            var speed = Math.Clamp(speedCycle[(frame + index++) % speedCycle.Length]
+                + (baselineSpeed - 25) * 0.1, 5, 48);
             for (var driver = 0; driver < 120; driver++)
             {
                 var offset = ((driver + 0.5) / 120 + frame * 0.013) % 1;
